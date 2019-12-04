@@ -15,7 +15,7 @@
   - wget https://drive.google.com/open?id=1UN8_bUo4qvWUyb drive.google.com/open?id=1UN8_bUo4qvWUyb/data.tar.gz
   - tar xf dict.tar.gz
   - tar xf data.tar.gz data.tar.gz
-  - make SpeckledBand SpeckledBand #「まだらのひも」場合
+  - make SpeckledBand #「まだらのひも」場合
   - make ACaseOfIdentity
   - make CrookedMan
   - make DancingMen
