@@ -8,19 +8,19 @@ SpeckledBand:
 
 ACaseOfIdentity:
         sh jena.sh --data data/ACaseOfIdentity-merged.ttl --query data/query5.sparql | head
-        sh jena.sh --data data/ACaseOfIdentity-merged.ttl --query data/query6.sparql | egrep Roylot
+        sh jena.sh --data data/ACaseOfIdentity-merged.ttl --query data/query6.sparql
 
 CrookedMan:
         sh jena.sh --data data/CrookedMan-merged.ttl --query data/query5.sparql | head
-        sh jena.sh --data data/CrookedMan-merged.ttl --query data/query6.sparql | egrep Roylot
+        sh jena.sh --data data/CrookedMan-merged.ttl --query data/query6.sparql 
 
 DancingMen:
         sh jena.sh --data data/DancingMen-merged.ttl --query data/query5.sparql | head
-        sh jena.sh --data data/DancingMen-merged.ttl --query data/query6.sparql | egrep Roylot
+        sh jena.sh --data data/DancingMen-merged.ttl --query data/query6.sparql 
 
 DevilsFoot:
         sh jena.sh --data data/DevilsFoot-merged.ttl --query data/query5.sparql | head
-        sh jena.sh --data data/DevilsFoot-merged.ttl --query data/query6.sparql | egrep Roylot
+        sh jena.sh --data data/DevilsFoot-merged.ttl --query data/query6.sparql |
 
 data/expand_motivation.ttl : data/AddMotivation.ttl
 	apache-jena-3.13.0/bin/rdfcat -out n3 data/expand.ttl data/AddMotivation.ttl > data/expand_motivation.ttl
