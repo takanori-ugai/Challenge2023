@@ -1,0 +1,20 @@
+prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+prefix owl: <http://www.w3.org/2002/07/owl#> 
+prefix cc:   <http://creativecommons.org/ns#> 
+prefix xsd:  <http://www.w3.org/2001/XMLSchema#> 
+prefix kgc: <http://kgc.knowledge-graph.jp/ontology/kgc.owl#>  
+#prefix kd: <http://kgc.knowledge-graph.jp/data/SpeckledBand/>  
+prefix kdcf: <http://kgchallenge.github.io/ontology/#>
+
+select (COUNT(?mean) as ?count) ?mean ?subject where {
+  ?S ?p ?subject .
+  ?S kdcf:relatedWord ?word .
+  ?mean kdcf:relatedWord ?word .
+  ?mean a kdcf:motivation_of_murder .
+  ?subject a kgc:Person .
+}
+GROUP BY ?subject ?mean
+ORDER BY DESC(?count)
+
+
