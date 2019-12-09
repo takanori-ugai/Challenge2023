@@ -9,10 +9,9 @@
   - Makefile - 容疑者を検出するスクリプト
   - Form.pdf - 応募フォーム
 ## 実行方法
-  - git clone https://github.com/KGChallenge/Challenge2019.git github.com/KGChallenge/Challenge2019.git 
-  - cd Challenge2019 d Challenge2019 d Challenge2019 d Challenge2019 d Challenge2019d Challenge2019
-  - wget https://drive.google.com/open?id=1UN8_bUo4qvWUyb drive.google.com/open?id=1UN8_bUo4qvWUyb/dict.tar.gz
-  - wget https://drive.google.com/open?id=1UN8_bUo4qvWUyb drive.google.com/open?id=1UN8_bUo4qvWUyb/data.tar.gz
+  - git clone https://github.com/KGChallenge/Challenge2019.git
+  - wget https://drive.google.com/open?id=1UN8_bUo4qvWUyb
+  - wget https://drive.google.com/open?id=1UN8_bUo4qvWUyb
   - tar xf dict.tar.gz
   - tar xf data.tar.gz data.tar.gz
   - make SpeckledBand #「まだらのひも」場合
