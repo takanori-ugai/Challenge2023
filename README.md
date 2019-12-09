@@ -10,10 +10,11 @@
   - Form.pdf - 応募フォーム
 ## 実行方法
   - git clone https://github.com/KGChallenge/Challenge2019.git
+  - cd Challenge2019
   - google drive の次の場所から dict.tar.gz と data.tar.gz を入手する
     - https://drive.google.com/drive/folders/1UN8_bUo4qvWUyb-tUS6aq_xP0_3pmxmw?usp=sharing
   - tar xf dict.tar.gz
-  - tar xf data.tar.gz data.tar.gz
+  - tar xf data.tar.gz
   - make SpeckledBand #「まだらのひも」場合
   - make ACaseOfIdentity
   - make CrookedMan
