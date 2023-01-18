@@ -7,27 +7,28 @@ import org.apache.jena.rdf.model.ModelFactory
 import org.apache.jena.util.FileManager
 
 fun main(args: Array<String>) {
-  // args[0] = RDF
-  // args[1] = Vector
-  val predictor = AddMotivation(args[0])
-  predictor.printTriples()
+    // args[0] = RDF
+    // args[1] = Vector
+    val predictor = AddMotivation(args[0])
+    predictor.printTriples()
 }
 
 class AddMotivation(rdf: String) {
-  val rdf = LoadRDF(rdf)
-  val wordnet = ModelFactory.createDefaultModel()
+    val rdf = LoadRDF(rdf)
+    val wordnet = ModelFactory.createDefaultModel()
 
-  // use the FileManager to find the input file
-  val wordnetStream = FileManager.get().open(rdf)
-    ?: throw IllegalArgumentException(
-      "File: $rdf not found")
+    // use the FileManager to find the input file
+    val wordnetStream = FileManager.get().open(rdf)
+        ?: throw IllegalArgumentException(
+            "File: $rdf not found"
+        )
 
-  init {
-    wordnet.read(wordnetStream, null, "TURTLE")
-  }
+    init {
+        wordnet.read(wordnetStream, null, "TURTLE")
+    }
 
-  fun printTriples() {
-    val queryString = """
+    fun printTriples() {
+        val queryString = """
 prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
 prefix owl: <http://www.w3.org/2002/07/owl#> 
@@ -44,18 +45,18 @@ select DISTINCT ?mean ?subject ?S where {
   ?mean a kdcf:motivation_of_murder .
   ?subject a kgc:Person .
 }
-    """.trimIndent()
-    val query = QueryFactory.create(queryString)
-    QueryExecutionFactory.create(query, wordnet).use { qexec ->
-      val results = qexec.execSelect()
-      while (results.hasNext()) {
-        val soln = results.nextSolution()
-        val motivation = soln.getResource("mean")
-        val subject = soln.getResource("subject")
-        val sentence = soln.getResource("S")
-        println("<${subject.toString()}> <http://kgchallenge.github.io/ontology/#relatedMotivation> <${motivation.toString()}> .")
-        println("<${sentence.toString()}> <http://kgchallenge.github.io/ontology/#relatedMotivation> <${motivation.toString()}> .")
-      }
+        """.trimIndent()
+        val query = QueryFactory.create(queryString)
+        QueryExecutionFactory.create(query, wordnet).use { qexec ->
+            val results = qexec.execSelect()
+            while (results.hasNext()) {
+                val soln = results.nextSolution()
+                val motivation = soln.getResource("mean")
+                val subject = soln.getResource("subject")
+                val sentence = soln.getResource("S")
+                println("<$subject> <http://kgchallenge.github.io/ontology/#relatedMotivation> <$motivation> .")
+                println("<$sentence> <http://kgchallenge.github.io/ontology/#relatedMotivation> <$motivation> .")
+            }
+        }
     }
-  }
 }

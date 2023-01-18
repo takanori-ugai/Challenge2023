@@ -1,6 +1,6 @@
 package com.fujitsu.labs.test1
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 
 class HeTest {
 
