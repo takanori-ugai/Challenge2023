@@ -1,3 +1,4 @@
+#! /bin/sh
 wget https://www.apache.org/dist/opennlp/opennlp-1.9.1/apache-opennlp-1.9.1-bin.tar.gz
 tar xf apache-opennlp-1.9.1-bin.tar.gz
 wget http://opennlp.sourceforge.net/models-1.5/en-token.bin
