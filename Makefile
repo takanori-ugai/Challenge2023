@@ -51,18 +51,18 @@ all-bin: data/merged-vector.bin data/SpeckledBand-vector.bin data/ACaseOfIdentit
 expand-bin: data/expand-vector.bin data/expand_motivation-vector.bin
 
 data/expand_motivation-vector.bin: data/expand_motivation.ttl
-	java -jar ../transe/build/libs/transe-all.jar  -s data/expand_motivation-vector.bin data/expand_motivation.ttl >> expand_motivation-learn.log
+	java -jar libs/transe-all.jar  -s data/expand_motivation-vector.bin data/expand_motivation.ttl >> expand_motivation-learn.log
 
 data/expand-vector.bin: data/expand.ttl
-	java -jar ../transe/build/libs/transe-all.jar  -s data/expand-vector.bin data/expand.ttl >> expand-learn.log
+	java -jar libs/transe-all.jar  -s data/expand-vector.bin data/expand.ttl >> expand-learn.log
 
 data/merged-vector.bin: data/merged.ttl
-	java -jar ../transe/build/libs/transe-all.jar  -s data/merged-vector.bin data/merged.ttl >> merged-learn.log
+	java -jar libs/transe-all.jar  -s data/merged-vector.bin data/merged.ttl >> merged-learn.log
 
 # SpeckledBand
 
 data/SpeckledBand-vector.bin: data/SpeckledBand-merged.ttl
-	java -jar ../transe/build/libs/transe-all.jar  -s data/SpeckledBand-vector.bin data/SpeckledBand-merged.ttl >> SpeckledBand-learn.log
+	java -jar libs/transe-all.jar  -s data/SpeckledBand-vector.bin data/SpeckledBand-merged.ttl >> SpeckledBand-learn.log
 
 data/SpeckledBand-merged.ttl: data/SpeckledBand.ttl data/SpeckledBand-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl
 	apache-jena-3.13.0/bin/rdfcat -out n3 data/SpeckledBand.ttl data/SpeckledBand-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl > data/SpeckledBand-merged.ttl
@@ -84,7 +84,7 @@ data/ACaseOfIdentity-RelatedWords.ttl: data/ACaseOfIdentity.ttl
 # CrookedMan
 
 data/CrookedMan-vector.bin: data/CrookedMan-merged.ttl
-	java -jar ../transe/build/libs/transe-all.jar  -s data/CrookedMan-vector.bin data/CrookedMan-merged.ttl >> CrookedMan-learn.log
+	java -jar libs/transe-all.jar  -s data/CrookedMan-vector.bin data/CrookedMan-merged.ttl >> CrookedMan-learn.log
 
 data/CrookedMan-merged.ttl: data/CrookedMan.ttl data/CrookedMan-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl
 	apache-jena-3.13.0/bin/rdfcat -out n3 data/CrookedMan.ttl data/CrookedMan-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl > data/CrookedMan-merged.ttl
@@ -95,7 +95,7 @@ data/CrookedMan-RelatedWords.ttl: data/CrookedMan.ttl
 # DancingMen
 
 data/DancingMen-vector.bin: data/DancingMen-merged.ttl
-	java -jar ../transe/build/libs/transe-all.jar  -s data/DancingMen-vector.bin data/DancingMen-merged.ttl >> DancingMen-learn.log
+	java -jar libs/transe-all.jar  -s data/DancingMen-vector.bin data/DancingMen-merged.ttl >> DancingMen-learn.log
 
 data/DancingMen-merged.ttl: data/DancingMen.ttl data/DancingMen-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl
 	apache-jena-3.13.0/bin/rdfcat -out n3 data/DancingMen.ttl data/DancingMen-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl > data/DancingMen-merged.ttl
@@ -106,7 +106,7 @@ data/DancingMen-RelatedWords.ttl: data/DancingMen.ttl
 # DevilsFoot
 
 data/DevilsFoot-vector.bin: data/DevilsFoot-merged.ttl
-	java -jar ../transe/build/libs/transe-all.jar  -s data/DevilsFoot-vector.bin data/DevilsFoot-merged.ttl >> DevilsFoot-learn.log
+	java -jar libs/transe-all.jar  -s data/DevilsFoot-vector.bin data/DevilsFoot-merged.ttl >> DevilsFoot-learn.log
 
 data/DevilsFoot-merged.ttl: data/DevilsFoot.ttl data/DevilsFoot-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl
 	apache-jena-3.13.0/bin/rdfcat -out n3 data/DevilsFoot.ttl data/DevilsFoot-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl > data/DevilsFoot-merged.ttl
