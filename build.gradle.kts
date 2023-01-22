@@ -8,8 +8,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
-    implementation("org.apache.opennlp:opennlp-tools:1.9.4")
+    implementation("org.apache.opennlp:opennlp-tools:2.1.0")
     implementation("com.mayabot:fastText4j:1.2.3")
     implementation("com.opencsv:opencsv:5.7.1")
     implementation("org.apache.jena:jena-core:4.4.0")
