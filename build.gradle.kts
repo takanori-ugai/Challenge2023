@@ -8,6 +8,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     implementation("org.apache.opennlp:opennlp-tools:1.9.4")
     implementation("com.mayabot:fastText4j:1.2.3")
     implementation("com.opencsv:opencsv:5.7.1")
@@ -28,6 +29,7 @@ dependencies {
 
 plugins {
     kotlin("jvm") version "1.8.0"
+    kotlin("plugin.serialization") version "1.8.0"
     application
     java
     id("org.jetbrains.dokka") version "1.7.20"
