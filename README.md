@@ -19,6 +19,7 @@
  - ./gradlew build
  - cd dict ; sh prepare.sh ; cd ..
  - cd data ; sh prepare.sh ; cd ..
+ - set JAVA_OPTS="-Xms1g -Xmx8g"
  - make
 ### execution
   - make SpeckledBand # in the case of SpeckledBand
