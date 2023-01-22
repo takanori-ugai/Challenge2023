@@ -1,12 +1,11 @@
 package com.fujitsu.labs.challenge2019
 
-import java.io.InputStreamReader
-import java.net.HttpURLConnection
-import java.net.URL
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonNames
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
 
 fun main() {
     val format = Json {
@@ -22,8 +21,8 @@ fun main() {
     val isr = InputStreamReader(http.getInputStream())
     val lines = isr.readText()
 //    println(lines)
-    val employeeObject = format.decodeFromString<Motivate>(lines);
-    println(employeeObject);
+    val employeeObject = format.decodeFromString<Motivate>(lines)
+    println(employeeObject)
     isr.close()
 }
 class ConceptNet2
