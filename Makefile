@@ -22,6 +22,18 @@ DevilsFoot:
 	sh jena.sh --data data/DevilsFoot-merged.ttl --query queries/query5.sparql | head
 	sh jena.sh --data data/DevilsFoot-merged.ttl --query queries/query6.sparql
 
+AbbeyGrange:
+	sh jena.sh --data data/AbbeyGrange-merged.ttl --query queries/query5.sparql | head
+	sh jena.sh --data data/AbbeyGrange-merged.ttl --query queries/query6.sparql
+
+ResidentPatient:
+	sh jena.sh --data data/ResidentPatient-merged.ttl --query queries/query5.sparql | head
+	sh jena.sh --data data/ResidentPatient-merged.ttl --query queries/query6.sparql
+
+SilverBlaze:
+	sh jena.sh --data data/SilverBlaze-merged.ttl --query queries/query5.sparql | head
+	sh jena.sh --data data/SilverBlaze-merged.ttl --query queries/query6.sparql
+
 data/expand_motivation.ttl : data/AddMotivation.ttl
 	apache-jena-3.13.0/bin/rdfcat -out n3 data/expand.ttl data/AddMotivation.ttl > data/expand_motivation.ttl
 
@@ -113,6 +125,39 @@ data/DevilsFoot-merged.ttl: data/DevilsFoot.ttl data/DevilsFoot-RelatedWords.ttl
 
 data/DevilsFoot-RelatedWords.ttl: data/DevilsFoot.ttl
 	java -cp build/libs/Challenge2023-all.jar com.fujitsu.labs.challenge2019.OpenNLPKt data/DevilsFoot.ttl > data/DevilsFoot-RelatedWords.ttl
+
+# AbbeyGrange
+
+data/AbbeyGrange-vector.bin: data/AbbeyGrange-merged.ttl
+	java -jar libs/transe-all.jar  -s data/AbbeyGrange-vector.bin data/AbbeyGrange-merged.ttl >> AbbeyGrange-learn.log
+
+data/AbbeyGrange-merged.ttl: data/AbbeyGrange.ttl data/AbbeyGrange-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl
+	apache-jena-3.13.0/bin/rdfcat -out n3 data/AbbeyGrange.ttl data/AbbeyGrange-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl > data/DevilsFoot-merged.ttl
+
+data/AbbeyGrange-RelatedWords.ttl: data/AbbeyGrange.ttl
+	java -cp build/libs/Challenge2023-all.jar com.fujitsu.labs.challenge2019.OpenNLPKt data/AbbeyGrange.ttl > data/AbbeyGrange-RelatedWords.ttl
+
+# ResidentPatient
+
+data/ResidentPatient-vector.bin: data/ResidentPatient-merged.ttl
+	java -jar libs/transe-all.jar  -s data/ResidentPatient-vector.bin data/ResidentPatient-merged.ttl >> ResidentPatient-learn.log
+
+data/ResidentPatient-merged.ttl: data/ResidentPatient.ttl data/ResidentPatient-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl
+	apache-jena-3.13.0/bin/rdfcat -out n3 data/ResidentPatient.ttl data/ResidentPatient-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl > data/DevilsFoot-merged.ttl
+
+data/ResidentPatient-RelatedWords.ttl: data/ResidentPatient.ttl
+	java -cp build/libs/Challenge2023-all.jar com.fujitsu.labs.challenge2019.OpenNLPKt data/ResidentPatient.ttl > data/ResidentPatient-RelatedWords.ttl
+
+# SilverBlaze
+
+data/SilverBlaze-vector.bin: data/SilverBlaze-merged.ttl
+	java -jar libs/transe-all.jar  -s data/RSilverBlaze-vector.bin data/SilverBlaze-merged.ttl >> SilverBlaze-learn.log
+
+data/SilverBlaze-merged.ttl: data/SilverBlaze.ttl data/SilverBlaze-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl
+	apache-jena-3.13.0/bin/rdfcat -out n3 data/SilverBlaze.ttl data/SilverBlaze-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl > data/DevilsFoot-merged.ttl
+
+data/SilverBlaze-RelatedWords.ttl: data/SilverBlaze.ttl
+	java -cp build/libs/Challenge2023-all.jar com.fujitsu.labs.challenge2019.OpenNLPKt data/SilverBlaze.ttl > data/SilverBlaze-RelatedWords.ttl
 
 #
 data/MeanWordnet.ttl: MeanWords.txt
