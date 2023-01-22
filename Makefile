@@ -55,8 +55,8 @@ data/ExpandSituation.ttl: data/merged.ttl data/merged-vector.bin
 data/AddWords.ttl: data/merged.ttl data/merged-vector.bin
 	java -cp build/libs/Challenge2023-all.jar com.fujitsu.labs.challenge2019.AddWordsKt data/merged.ttl data/merged-vector.bin | tail -n +3 > data/AddWords.ttl
 
-data/merged.ttl: data/SpeckledBand-merged.ttl data/ACaseOfIdentity-merged.ttl data/CrookedMan-merged.ttl data/DancingMen-merged.ttl data/DevilsFoot-merged.ttl
-	apache-jena-3.13.0/bin/rdfcat -out n3 data/SpeckledBand.ttl data/SpeckledBand-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl data/ACaseOfIdentity.ttl data/ACaseOfIdentity-RelatedWords.ttl data/CrookedMan.ttl data/CrookedMan-RelatedWords.ttl data/DancingMen.ttl data/DancingMen-RelatedWords.ttl data/DevilsFoot.ttl data/DevilsFoot-RelatedWords.ttl > data/merged.ttl
+data/merged.ttl: data/SpeckledBand-merged.ttl data/ACaseOfIdentity-merged.ttl data/CrookedMan-merged.ttl data/DancingMen-merged.ttl data/DevilsFoot-merged.ttl data/AbbeyGrange-merged.ttl data/ResidentPatient-merged.ttl data/SilverBlaze-merged.ttl
+	apache-jena-3.13.0/bin/rdfcat -out n3 data/SpeckledBand.ttl data/SpeckledBand-RelatedWords.ttl data/MeanWordnet.ttl data/MotivationWordnet.ttl dict/wordnet31.ttl data/ACaseOfIdentity.ttl data/ACaseOfIdentity-RelatedWords.ttl data/CrookedMan.ttl data/CrookedMan-RelatedWords.ttl data/DancingMen.ttl data/DancingMen-RelatedWords.ttl data/DevilsFoot.ttl data/DevilsFoot-RelatedWords.ttl data/AbbeyGrange-merged.ttl data/ResidentPatient-merged.ttl data/SilverBlaze-merged.ttl > data/merged.ttl
 
 all-bin: data/merged-vector.bin data/SpeckledBand-vector.bin data/ACaseOfIdentity-vector.bin data/CrookedMan-vector.bin data/DancingMen-vector.bin data/DevilsFoot-vector.bin
 
