@@ -25,3 +25,6 @@
   - make CrookedMan
   - make DancingMen
   - make DevilsFoot
+  - make AbbeyGrange
+  - make ResidentPatient
+  - make SilverBlaze
