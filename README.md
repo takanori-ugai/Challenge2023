@@ -30,3 +30,9 @@
   - make AbbeyGrange
   - make ResidentPatient
   - make SilverBlaze
+
+### with link prediction
+  - make all-bin
+
+### with Conceptnet
+  - modify the Makefile to use Conceptnet1 and Conceptnet2 instead of Wordnet. See the source codes.
